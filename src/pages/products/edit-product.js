@@ -36,8 +36,7 @@ export default function EditProducts(req) {
         console.log(data)
         await api.put('/product/edit', data, {
             
-            
-
+        
         }).then(() => {
             window.location.href = '/products';
         });
