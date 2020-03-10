@@ -25,8 +25,12 @@ export default function Products() {
         async function loadProducts() {
             const response = await api.get('/product', {
             });
-            setProducts(response.data.data)
+            if(response.data[0].status === 'failed') {
+                window.location.href = '/';
+            }
+            setProducts(response.data)
         }
+        
         loadProducts();
         
     },

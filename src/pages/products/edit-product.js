@@ -1,5 +1,4 @@
-import React, { useEffect, useState, useMemo } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState} from 'react';
 import api from '../../services/api';
     
     
@@ -26,7 +25,7 @@ export default function EditProducts(req) {
         loadProduct();
         
     },
-    []
+    //[]
     );
 
     async function handleSubmit(event, a, b) {

@@ -1,5 +1,4 @@
-import React, { useState, useMemo } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
 import api from '../../services/api';
 
 export default function NewProducts() {
