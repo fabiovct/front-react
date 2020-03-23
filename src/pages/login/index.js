@@ -13,11 +13,13 @@ export default function Login() {
             'password': password
         };
 
-       const response =  await api.post('/auth', data, {
+       const response =  await api.post('/login', data, {
 
         });
-        if(response.data[0].status !== 'failed'){
-            sessionStorage.setItem('status',response.data[0].status)
+
+
+        if(response.data.token !== 'failed'){
+            localStorage.setItem('token',response.data.token)
             window.location.href = '/products';
         }
         

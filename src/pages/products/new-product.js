@@ -14,7 +14,7 @@ export default function NewProducts() {
         };
         
 
-        await api.post('/product/create', data, {
+        await api.post('/api/product', data, {
             
 
         }).then(() => {

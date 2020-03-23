@@ -6,7 +6,7 @@ import api from '../../services/api';
 export default function Products() {
 
     function deleteProduct(id) {
-        api.delete('/product/delete', { data: { id: id }})
+        api.delete('/api/product', { data: { id: id }})
            .then((result) => {
             //    const data = result.data.data
                console.log(result)
@@ -23,10 +23,10 @@ export default function Products() {
     useEffect(() => {
         
         async function loadProducts() {
-            const response = await api.get('/product', {
+            const response = await api.get('/api/product', {
             });
-            if(response.data[0].status === 'failed') {
-                window.location.href = '/';
+            if(response.data === false) {
+               window.location.href = '/';
             }
             setProducts(response.data)
         }

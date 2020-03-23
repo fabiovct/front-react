@@ -4,18 +4,22 @@ import Login from './pages/login';
 import Products from './pages/products';
 import NewProducts from './pages/products/new-product';
 import EditProducts from './pages/products/edit-product';
+import api from './services/api';
 
 
 function isAuthenticated(){
-    if(sessionStorage.status === 'true'){
+  const response =  api.post('/validateToken' ,{
+
+  });
+    if(response.data != false){
         return true
     } else {
         return false
     }
 }
 
+
 export default function Routes() {
-    console.log(sessionStorage.status)
     const PrivateRoute = ({ component: Component, ...rest }) => (
         <Route
           {...rest}
@@ -34,9 +38,9 @@ export default function Routes() {
         <BrowserRouter>
             <Switch>
                 <Route path="/" exact component={Login}/>    
-                <Route path="/products" exact component={Products}/>
+                <PrivateRoute path="/products" exact component={Products}/>
                 <PrivateRoute path="/products/new" exact component={NewProducts}/>
-                <Route path="/products/:id" exact component={EditProducts}/>
+                <PrivateRoute path="/products/:id" exact component={EditProducts}/>
             </Switch>
         </BrowserRouter>
     );
