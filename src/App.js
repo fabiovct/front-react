@@ -7,7 +7,7 @@ import Routes from './routes';
 function App() {
   return (
     <div className="App">
-      <p>Hellow!</p>
+      <p>TESTE!</p>
       <div className="content">
       <Routes />
       

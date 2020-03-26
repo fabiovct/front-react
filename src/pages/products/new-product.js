@@ -26,24 +26,24 @@ export default function NewProducts() {
         <div className="container">
         <form onSubmit = {handleSubmit}>
             <div className="form-group">
-            <label htmlFor="name">Produto</label>
-            <input
-            className="form-control" 
-            id="name"
-            placeholder="Nome do Produto"
-            value={name}
-            onChange={event => setName(event.target.value)}
-            />
+                <label htmlFor="name">Produto</label>
+                <input
+                    className="form-control" 
+                    id="name"
+                    placeholder="Nome do Produto"
+                    value={name}
+                    onChange={event => setName(event.target.value)}
+                />
             </div>
             <div className="form-group">
-            <label htmlFor="preco">Preço</label>
-            <input
-            className="form-control" 
-            id="preco"
-            placeholder="Preço do Produto"
-            value={preco}
-            onChange={event => setPreco(event.target.value)}
-            />
+                <label htmlFor="preco">Preço</label>
+                <input
+                    className="form-control" 
+                    id="preco"
+                    placeholder="Preço do Produto"
+                    value={preco}
+                    onChange={event => setPreco(event.target.value)}
+                />
             </div>
             <button type="submit" className="btn btn-primary">Submit</button>
         </form>

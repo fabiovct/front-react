@@ -4,6 +4,7 @@ import Login from './pages/login';
 import Products from './pages/products';
 import NewProducts from './pages/products/new-product';
 import EditProducts from './pages/products/edit-product';
+import Users from './pages/users';
 import api from './services/api';
 
 
@@ -41,6 +42,7 @@ export default function Routes() {
                 <PrivateRoute path="/products" exact component={Products}/>
                 <PrivateRoute path="/products/new" exact component={NewProducts}/>
                 <PrivateRoute path="/products/:id" exact component={EditProducts}/>
+                <PrivateRoute path="/users" exact component={Users}/>
             </Switch>
         </BrowserRouter>
     );
