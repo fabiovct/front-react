@@ -6,6 +6,9 @@ import NewProducts from './pages/products/new-product';
 import EditProducts from './pages/products/edit-product';
 import Users from './pages/users';
 import api from './services/api';
+import { Provider } from 'react-redux';
+import store from './store';
+import {connect} from 'react-redux';
 
 
 function isAuthenticated(){
@@ -20,7 +23,8 @@ function isAuthenticated(){
 }
 
 
-export default function Routes() {
+//export default 
+function Routes() {
     const PrivateRoute = ({ component: Component, ...rest }) => (
         <Route
           {...rest}
@@ -34,16 +38,23 @@ export default function Routes() {
         />
       );
 
-    
     return (
-        <BrowserRouter>
+      
+        //<BrowserRouter>
             <Switch>
                 <Route path="/" exact component={Login}/>    
+                
                 <PrivateRoute path="/products" exact component={Products}/>
                 <PrivateRoute path="/products/new" exact component={NewProducts}/>
                 <PrivateRoute path="/products/:id" exact component={EditProducts}/>
+                
                 <PrivateRoute path="/users" exact component={Users}/>
+                
+                
             </Switch>
-        </BrowserRouter>
+        //</BrowserRouter>
+        
     );
 }
+
+export default Routes;

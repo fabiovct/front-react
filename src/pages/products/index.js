@@ -9,7 +9,6 @@ export default function Products() {
         api.delete('/api/product', { data: { id: id }})
            .then((result) => {
             //    const data = result.data.data
-               console.log(result)
                //this.props.toggle()
                window.location.reload()
         })

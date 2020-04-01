@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Component } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../../services/api';
+import {connect} from 'react-redux';
 
-export default class  Users extends Component {
+ class  Users extends Component {
     state = {
         users: [],
     };
@@ -16,6 +17,14 @@ export default class  Users extends Component {
 
         this.setState({users: response.data});
     }
+
+    handleAddUser = user => {
+        const {dispatch} = this.props;
+        dispatch({
+            type:'ADD_USER',
+            user,
+        });
+    };
 
     render() {
         const {users} = this.state;
@@ -41,19 +50,33 @@ export default class  Users extends Component {
             <th>{user.id}</th>
                 <td>{user.name}</td>
                 <td>
-                    ...
+                    <button 
+                    className="btn btn-primary" 
+                    type="button" 
+                    onClick={()=>this.handleAddUser(user)}
+                    >Adcionar
+                    </button>
                 </td>
                 </tr>
                 </tbody>
     
             
             ))}
-            </table>   
+            </table>
+
+            <Link to="products">
+            <button className="btn btn-success btn-sm">Voltar</button>
+            </Link>   
             
         </div>
         </>
         )
 
+
     }
 
 }
+
+export default connect()(Users);
+
+
