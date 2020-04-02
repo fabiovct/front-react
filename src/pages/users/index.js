@@ -9,7 +9,7 @@ import {connect} from 'react-redux';
     };
 
     async componentDidMount() {
-        const response = await api.get('/api/listUsers', {
+        const response = await api.get('/api/product', {
         });
         if(response.data === false) {
             window.location.href = '/';

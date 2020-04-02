@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {connect} from 'react-redux';
 
 function Header({user}) {
@@ -6,23 +7,20 @@ function Header({user}) {
             
     
 
-    //console.log(user)
+    console.log(user)
     //const id = user.id
+    if(user.length > 0){
     return (
-        <>
-
-        {user.map(user => (
-        <div className="App" key={user.id}>
-            
-      <p>Usuários: {user.id}</p>
-      <div className="content">
-          </div>
-            
-          </div>
-          ))}
-          </>
-          
+        <Link to="cart">
+    <p>Produtos:{user.length}</p>
+    </Link>
     );
+} else {
+    return (
+        <p>TESTE</p>
+        );
+}
+
 }
 
 //export default connect()(Header);

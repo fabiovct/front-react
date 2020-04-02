@@ -5,6 +5,7 @@ import Products from './pages/products';
 import NewProducts from './pages/products/new-product';
 import EditProducts from './pages/products/edit-product';
 import Users from './pages/users';
+import Cart from './pages/cart';
 import api from './services/api';
 import { Provider } from 'react-redux';
 import store from './store';
@@ -49,6 +50,7 @@ function Routes() {
                 <PrivateRoute path="/products/:id" exact component={EditProducts}/>
                 
                 <PrivateRoute path="/users" exact component={Users}/>
+                <PrivateRoute path="/cart" exact component={Cart}/>
                 
                 
             </Switch>
