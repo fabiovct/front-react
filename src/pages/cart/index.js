@@ -2,8 +2,9 @@ import React, { useEffect, useState, Component } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../../services/api';
 import {connect} from 'react-redux';
+import * as CartActions from '../users/actions'
 
-function Cart({cart}) {
+function Cart({cart, dispatch}) {
     console.log(cart)
     return (
 
@@ -27,7 +28,17 @@ function Cart({cart}) {
             <td>{user.name}</td>
                     <td>{user.amount}</td>
             <td>{user.preco}</td>
-                    <td></td>
+                    <td>
+                        <button className="btn btn-primary" onClick={() => dispatch
+                            (CartActions.removeFromCart(user.id))}>Remover Produto
+                        </button>
+                        <button className="btn btn-primary" onClick={() => dispatch (CartActions.updateAmount(user.id, user.amount + 1 ))}>+1
+                        </button>
+                        <button className="btn btn-primary" onClick={() => dispatch (CartActions.updateAmount(user.id, user.amount - 1 ))}>-1
+                        </button>
+                            
+                            
+                            </td>
                     </tr>
 
             ))}

@@ -2,6 +2,7 @@ import React, { useEffect, useState, Component } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../../services/api';
 import {connect} from 'react-redux';
+import * as CartActions from '../users/actions'
 
  class  Users extends Component {
     state = {
@@ -20,10 +21,9 @@ import {connect} from 'react-redux';
 
     handleAddUser = user => {
         const {dispatch} = this.props;
-        dispatch({
-            type:'ADD_USER',
-            user,
-        });
+        dispatch(
+            CartActions.addToCart(user)
+        );
     };
 
     render() {
