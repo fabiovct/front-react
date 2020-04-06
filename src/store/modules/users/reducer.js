@@ -26,12 +26,18 @@ export default function users(state=[], action){
                 });
 
                 case 'UPDATE_FROM_CART':
-                    console.log('ok')
-                    //{
-                   // if(action.amount > 0 || action.amount === 0 ){
-                       // console.log(action.amount)
-                       // return state;
-                    //}
+                    {
+                    if(action.amount === 0 ){
+                        console.log(action.amount)
+                        //return state;
+                        return produce(state, draft =>{
+                            const userIndex = draft.findIndex(p=> p.id === action.id)
+                            if(userIndex > 0 || userIndex === 0 ){
+                                draft.splice(userIndex, 1);
+                            }
+                            
+                        });
+                    }
                 return produce(state, draft =>{
                     const userIndex = draft.findIndex(p=> p.id === action.id)
                     if(userIndex > 0 || userIndex === 0 ){
@@ -40,7 +46,8 @@ export default function users(state=[], action){
                     }
                     
                 });
-            //}
+            
+            }
 
         default:
             return state;
