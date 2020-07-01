@@ -13,14 +13,25 @@ import {connect} from 'react-redux';
 
 
 function isAuthenticated(){
-  const response =  api.post('/validateToken' ,{
-
+  var $data;
+  const response =   api.post('/validateToken' ,{
   });
-    if(response.data != false){
-        return true
-    } else {
-        return false
-    }
+  const s = response.then(function(v){
+    $data = v.data;
+    if($data != false){
+      return true
+  } else {
+      return false
+  }
+
+
+  }
+
+  )
+
+  
+  
+    
 }
 
 
